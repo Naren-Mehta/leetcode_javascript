@@ -3,7 +3,7 @@ var sortSentence = function (s) {
         strArr = s.split(" ");
     for (let i = 0; i < strArr.length; i++) {
         //let t = strArr[i][strArr[i].length-1]
-        let index = strArr[i].charAt(strArr[i].length - 1);
+        let index = strArr[i][strArr[i].length - 1];
         str[index - 1] = strArr[i].slice(0, strArr[i].length - 1);
     }
 
