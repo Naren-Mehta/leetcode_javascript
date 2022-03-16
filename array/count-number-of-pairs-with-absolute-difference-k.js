@@ -1,5 +1,5 @@
-var countKDifference = function(nums, k) {
 
+var countKDifference = function(nums, k) {
     //#Solution 2
 
     var count = 0, map = {};
