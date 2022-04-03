@@ -41,3 +41,25 @@ console.log("ES6 sorter: isOdd Array ", output);
 // ES6 syntax
 output = arr.filter((x) => x % 2);
 console.log("ES6 shotest: isOdd Array ", output);
+
+//=======================================================================================
+
+let words = ['spray', 'limit', 'exuberant', 'destruction', 'elite', 'present']
+
+const modifiedWords = words.filter( (word, index, arr) => {
+  arr[index+1] +=' extra';
+  return word.length < 6;
+});
+
+console.log(words)
+console.log(modifiedWords);
+
+words = ['spray', 'limit', 'exuberant', 'destruction', 'elite', 'present']
+const appendedWords = words.filter( (word, index, arr) => {
+  arr.push('new');
+  console.log(arr);
+  return word.length < 6;
+})
+
+console.log(words)
+console.log(modifiedWords);
