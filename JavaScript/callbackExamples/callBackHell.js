@@ -9,13 +9,14 @@ function calculateSqure(number, callback) {
     }, 1000);
 }
 
-calculateSqure(1, function (error, result) {
-    console.log(result);
-    calculateSqure(2, function (error, result) {
-        console.log(result);
-        calculateSqure(3, function (error, result) {
-            console.log(result);
-        });
-    });
+// calculateSqure(1, function (error, result) {
+//     console.log(result);
+//     calculateSqure(2, function (error, result) {
+//         console.log(result);
+//         calculateSqure(3, function (error, result) {
+//             console.log(result);
+//         });
+//     });
+// });
 
-});
+module.exports = calculateSqure;

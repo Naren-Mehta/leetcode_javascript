@@ -43,20 +43,22 @@ function calculateSqure(number) {
 // ES6 lambda
 // Calculate squre // Promise chain==============================================
 
-calculateSqure(1)
-    .then(value => {
-        console.log("promise chain starts " + value);
-        return calculateSqure(2);
-    })
-    .then(value1 => {
-        console.log(value1);
-        return calculateSqure(3);
-    })
-    .then(value2 => {
-        console.log(value2);
-        return calculateSqure(4);
-    })
-    .then(value3 => {
-        console.log("promise chain ends " + value3);
-        return calculateSqure(5);
-    });
+// calculateSqure(1)
+//     .then(value => {
+//         console.log("promise chain starts " + value);
+//         return calculateSqure(2);
+//     })
+//     .then(value1 => {
+//         console.log(value1);
+//         return calculateSqure(3);
+//     })
+//     .then(value2 => {
+//         console.log(value2);
+//         return calculateSqure(4);
+//     })
+//     .then(value3 => {
+//         console.log("promise chain ends " + value3);
+//         return calculateSqure(5);
+//     });
+
+    module.exports = calculateSqure;
