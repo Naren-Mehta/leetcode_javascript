@@ -5,6 +5,8 @@ var twoSum = function(nums, target) {
         map[nums[i]] = i;
     }
 
+    console.log(map)
+
     for(var i=0; i<nums.length; i++){
         var value = target - nums[i];
         if(map[value] && map[value] != i){

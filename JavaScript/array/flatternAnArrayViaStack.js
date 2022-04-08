@@ -1,4 +1,4 @@
-let array = [1, [2, 3], [4, 5, 6, [7, 8, 9]]];
+let array = [6, 8 ,9, [4, 5, 6], [4, 5, 6, [7, 8, 9]]];
 
 console.log("test")
 
@@ -17,4 +17,4 @@ function flattern(arr){
     return res.reverse();
 }
 
-flattern(array);
+console.log(flattern(array));
