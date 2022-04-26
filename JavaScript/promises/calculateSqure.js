@@ -6,7 +6,7 @@ function calculateSqure(number) {
             }
             const result = number * number;
             resolve(result);
-        }, 1000);
+        }, 5000);
     });
     return promise;
 }
@@ -17,11 +17,11 @@ function calculateSqure(number) {
 //     console.log('Error: ' + reason);
 // });
 
-// calculateSqure(5).then(function (value) {
-//     console.log(value);
-// }, function (reason) {
-//     console.log('Error: ' + reason);
-// });
+calculateSqure(5).then(function (value) {
+    console.log(value);
+}, function (reason) {
+    console.log('Error: ' + reason);
+});
 
 
 // //Promise Chain example
@@ -61,4 +61,4 @@ function calculateSqure(number) {
 //         return calculateSqure(5);
 //     });
 
-    module.exports = calculateSqure;
+    // module.exports = calculateSqure;
