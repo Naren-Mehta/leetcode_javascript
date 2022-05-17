@@ -55,10 +55,10 @@
 
 
 
-// console.log("a")
-// setTimeout(() => console.log("b"), 0);
-// Promise.resolve(() => console.log("c")).then((res) => res());
-// console.log("d");
+console.log("a")
+setTimeout(() => console.log("b"), 0);
+Promise.resolve(() => console.log("c")).then((res) => res());
+console.log("d");
 
 
 // ['a','b','c'] ==> {
@@ -68,16 +68,16 @@
 // 						}
 // convert array to object
 
-const arrayToObject = ['a','b','c'].reduce((acc, current, index) =>{
-    acc[index] = current;
-    return acc;
-}, {});
+// const arrayToObject = ['a','b','c'].reduce((acc, current, index) =>{
+//     acc[index] = current;
+//     return acc;
+// }, {});
 
-console.log("arrayToObject ",arrayToObject)
+// console.log("arrayToObject ",arrayToObject)
 
 
-var x =  ['a','b','c'];
-console.log({...x});
+// var x =  ['a','b','c'];
+// console.log({...x});
 
 
 //
