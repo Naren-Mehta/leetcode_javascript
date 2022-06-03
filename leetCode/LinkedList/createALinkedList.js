@@ -27,50 +27,177 @@ class LinkedList {
 
   print() {
     var head = this.head;
+    var str = "";
     while (head) {
-      console.log(head.element);
+      str += head.element + " ";
       head = head.next;
     }
+
+    console.log(str);
   }
 
   length() {
-    return this.size;
+    console.log(this.size);
   }
 
   insertAt(element, index) {
     if (index < 0 || index > this.size) {
-      return console.log("Please add the valid index");
+      return console.log("Invalid index!");
     }
-    var node = new Node(element);
-    var current = this.head,
-      prev = null;
-    var count = 0;
 
+    var node = new Node(element);
     if (index === 0) {
-      node.next = current;
+      node.next = this.head;
       this.head = node;
     } else {
-      var count = 0;
+      var current = this.head,
+        prev = null,
+        count = 0;
       while (count < index) {
-        count++;
         prev = current;
         current = current.next;
+        count++;
       }
-
       node.next = current;
       prev.next = node;
     }
     this.size++;
   }
+
+  remove() {
+    if (!this.head) {
+      return console.log("Already empty");
+    }
+    var current = this.head,
+      prev = null;
+    if (!current.next) {
+      this.head = null;
+    } else {
+      while (current.next) {
+        prev = current;
+        current = current.next;
+      }
+      prev.next = null;
+    }
+    this.size--;
+  }
+
+  removeFromIndex(index) {
+    if (index < 0 || index >= this.size) {
+      return console.log("Invalid Index!");
+    }
+    var current = this.head,
+      prev = null;
+    if (index === 0) {
+      this.head = current.next;
+    } else {
+      var count = 0;
+      while (count < index) {
+        prev = current;
+        current = current.next;
+        count++;
+      }
+      prev.next = current.next;
+      this.size--;
+
+      return current.element;
+    }
+  }
+
+  removeElement(element) {
+    var current = this.head,
+      prev = null;
+
+    if (!current) {
+      return console.log("List is already empty");
+    }
+
+    while (current) {
+      if (current.element === element) {
+        if (prev) {
+          prev.next = current.next;
+        } else {
+          this.head = current.next;
+        }
+        this.size--;
+        return current.element;
+      }
+      prev = current;
+      current = current.next;
+    }
+
+    return -1;
+  }
+
+  indexOf(element) {
+    var current = this.head,
+      count = 0;
+    while (current) {
+      if (current.element === element) {
+        return count;
+      }
+      current = current.next;
+      count++;
+    }
+
+    return -1;
+  }
+
+  isEmpty() {
+    return this.size === 0;
+  }
+
+  middleNode() {
+    var head = this.head;
+    var slow = head, fast = head;
+
+    while(fast && fast.next){
+      slow = slow.next;
+      fast = fast.next.next;
+    }
+    return slow.element;
+  }
+
+  reverse (){
+    var head = this.head;
+    var nextNode = head;
+    var prevNode = null;
+
+    while(nextNode){
+      head = nextNode;
+      nextNode = nextNode.next
+      head.next = prevNode;
+      prevNode = head;
+    }
+    this.head = head;
+  }
 }
 
 var list = new LinkedList();
 
-list.add(10);
-list.add(20);
-list.add(30);
-list.add(40);
-list.insertAt(35, 3);
-
-console.log("===size===" + list.length());
+list.add(1);
+list.add(2);
+list.add(3);
+list.add(4);
+list.add(5);
+list.add(6);
 list.print();
+
+list.remove();
+// list.insertAt(35, 4);
+// list.print();
+// console.log(list.middleNode());
+
+// console.log("After remove");
+// list.remove();
+// list.removeFromIndex(3);
+// list.removeElement(10);
+list.print();
+
+// console.log(list.indexOf(35));
+// console.log(list.isEmpty());
+// list.length();
+
+
+// list.reverse();
+// list.print();

@@ -1,5 +1,4 @@
 var addTwoNumbers = function (l1, l2) {
-    console.log(typeof l1);
   l1.reverse();
   l2.reverse();
   var sum = (parseInt(l1.join("")) + parseInt(l2.join("")))+'';
