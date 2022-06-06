@@ -149,41 +149,58 @@ class LinkedList {
 
   middleNode() {
     var head = this.head;
-    var slow = head, fast = head;
+    var slow = head,
+      fast = head;
 
-    while(fast && fast.next){
+    while (fast && fast.next) {
       slow = slow.next;
       fast = fast.next.next;
     }
     return slow.element;
   }
 
-  reverse (){
+  reverse() {
     var head = this.head;
     var nextNode = head;
     var prevNode = null;
 
-    while(nextNode){
+    while (nextNode) {
       head = nextNode;
-      nextNode = nextNode.next
+      nextNode = nextNode.next;
       head.next = prevNode;
       prevNode = head;
     }
     this.head = head;
   }
+
+  reverseNew() {
+    var current = this.head,
+      prev = null,
+      next = null;
+
+    while (current) {
+      next = current.next;
+      current.next = prev;
+      prev = current;
+      current = next;
+    }
+
+    this.head = prev;
+  }
+
+  getIntersectionNode(headA, headB) {}
 }
 
-var list = new LinkedList();
-
-list.add(1);
-list.add(2);
-list.add(3);
-list.add(4);
-list.add(5);
-list.add(6);
-list.print();
-
-list.remove();
+// var list = new LinkedList();
+// list.add(1);
+// list.add(2);
+// list.add(3);
+// list.add(4);
+// list.add(5);
+// list.add(6);
+// list.print();
+// list.reverseNew()
+// list.remove();
 // list.insertAt(35, 4);
 // list.print();
 // console.log(list.middleNode());
@@ -192,12 +209,78 @@ list.remove();
 // list.remove();
 // list.removeFromIndex(3);
 // list.removeElement(10);
-list.print();
+// list.print();
 
 // console.log(list.indexOf(35));
 // console.log(list.isEmpty());
 // list.length();
 
-
 // list.reverse();
 // list.print();
+
+// ========================================================================
+var list1 = new LinkedList();
+list1.add(4);
+list1.add(1);
+list1.add(8);
+list1.add(4);
+list1.add(5);
+list1.print();
+
+var list2 = new LinkedList();
+list2.add(5);
+list2.add(6);
+list2.add(1);
+list2.add(8);
+list2.add(4);
+list2.add(5);
+
+list2.print();
+
+
+var print = function(head) {
+  var str = "";
+  while (head) {
+    str += head.element + " ";
+    head = head.next;
+  }
+  console.log(str);
+}
+var length = function (head) {
+  var count = 0;
+  while (head) {
+    count++;
+    head = head.next;
+  }
+  return count;
+};
+
+var getIntersectionNode = function (headA, headB) {
+  var lengthA = length(headA);
+  var lengthB = length(headB);
+
+  while (lengthA > lengthB) {
+    headA = headA.next;
+    lengthA--;
+  }
+
+  while (lengthA < lengthB) {
+    headB = headB.next;
+    lengthB--;
+  }
+
+  console.log(headA, headB)
+
+
+  while(headA != headB){
+    headA = headA.next;
+    headB = headB.next;
+  }
+
+  console.log(headA, headB)
+
+  return headA;
+};
+
+var intersection = getIntersectionNode(list1.head, list2.head);
+console.log(intersection);
