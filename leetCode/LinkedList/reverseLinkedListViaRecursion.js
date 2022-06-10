@@ -51,7 +51,6 @@ var reverse = function (head) {
   }
 
   var newHeadNode = reverse(head.next);
-  console.log("=========",head.next.next);
   head.next.next = head;
   head.next = null;
 
