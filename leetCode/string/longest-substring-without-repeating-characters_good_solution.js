@@ -6,23 +6,22 @@ var lengthOfLongestSubstring = function (s) {
 
   let l = 0,
     r = 0;
-  let set = new Set();
+  let map = new Map();
   let max = 0;
   while (r < len) {
     let char = s.charAt(r);
 
-    if (set.has(char)) {
-      set.delete(s.charAt(l));
-      l++;
-    } else {
-      max = Math.max(max, r - l + 1);
-      set.add(char);
-      r++;
+    if (map.get(char) >= 0) {
+      l = Math.max(l, map.get(char) + 1);
     }
-    console.log(char, set, max);
+
+    map.set(char, r);
+    max = Math.max(max, r - l + 1);
+    console.log(char, map, max);
+    r++;
   }
 
   return max;
 };
 
-console.log(lengthOfLongestSubstring("abcaabcdeaba"));
+console.log(lengthOfLongestSubstring("abcabcbb"));
