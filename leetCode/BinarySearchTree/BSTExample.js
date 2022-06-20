@@ -8,7 +8,7 @@ function insert(root, data) {
   let newNode = new BSTNode(data);
   if (root == null) {
     root = newNode;
-  } else if (data < root.data) {
+  } else if (data <= root.data) {
     root.left = insert(root.left, data);
   } else {
     root.right = insert(root.right, data);
@@ -71,18 +71,43 @@ function search(root, value) {
   return false;
 }
 
-function searchRecurssively(root, value){
-  console.log("==",root ? root.data : root)
-  if(root == null){
+function searchRecurssively(root, value) {
+  if (root == null) {
     return false;
   }
-  if(root.data == value){
+  if (root.data == value) {
     return true;
-  }else if(value < root.data){
+  } else if (value < root.data) {
     return searchRecurssively(root.left, value);
-  }else{
+  } else {
     return searchRecurssively(root.right, value);
   }
+}
+
+function findMinimum(root) {
+  if (!root) {
+    return -1;
+  }
+  while (root.left) {
+    root = root.left;
+  }
+  return root.data;
+}
+
+function findMaximum(root) {
+  if (!root) {
+    return -1;
+  }
+  while (root.right) {
+    root = root.right;
+  }
+  return root.data;
+}
+
+function height(root) {
+  if (!root) return -1;
+  
+  return Math.max(height(root.left), height(root.right)) + 1;
 }
 let root = null;
 root = insert(root, 15);
@@ -92,6 +117,7 @@ root = insert(root, 20);
 root = insert(root, 5);
 root = insert(root, 7);
 root = insert(root, 2);
+root = insert(root, 1);
 
 root = insert(root, 16);
 root = insert(root, 25);
@@ -103,14 +129,16 @@ root = insert(root, 17);
 
 // print(root);
 
-root = insertWithoutRecursion(root, 18);
-console.log("===");
-root = insertWithoutRecursion(root, 19);
-console.log("===search=======");
+// root = insertWithoutRecursion(root, 18);
+// root = insertWithoutRecursion(root, 19);
+// console.log("===search=======");
+// console.log(search(root, 19));
+// console.log(search(root, 123));
+// console.log("===searchRecurssively=======");
 
-console.log(search(root, 19));
-console.log(search(root, 123));
-console.log("===searchRecurssively=======");
+// console.log(searchRecurssively(root, 19));
+// console.log(searchRecurssively(root, 123));
 
-console.log(searchRecurssively(root, 19));
-console.log(searchRecurssively(root, 123));
+// console.log(findMinimum(root));
+// console.log(findMaximum(root));
+console.log(height(root));
