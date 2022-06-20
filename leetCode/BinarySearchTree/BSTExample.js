@@ -47,15 +47,6 @@ function insertWithoutRecursion(root, data) {
   return root;
 }
 
-function print(root) {
-  while (root != null) {
-    console.log(root.data);
-    print(root.left);
-    // print(root.right);
-    // root = root.right;
-  }
-}
-
 function search(root, value) {
   while (root) {
     if (root.data == value) {
@@ -106,9 +97,32 @@ function findMaximum(root) {
 
 function height(root) {
   if (!root) return -1;
-  
   return Math.max(height(root.left), height(root.right)) + 1;
 }
+
+function printPreOrder(root) {
+  if(!root) return;
+
+  console.log(root.data);
+  printPreOrder(root.left);
+  printPreOrder(root.right);
+}
+
+function printInOrder(root) {
+  if(!root) return;
+  printInOrder(root.left);
+  console.log(root.data);
+  printInOrder(root.right);
+}
+
+function printPostOrder(root) {
+  if(!root) return;
+  printPostOrder(root.left);
+  printPostOrder(root.right);
+  console.log(root.data);
+
+}
+
 let root = null;
 root = insert(root, 15);
 root = insert(root, 10);
@@ -141,4 +155,8 @@ root = insert(root, 17);
 
 // console.log(findMinimum(root));
 // console.log(findMaximum(root));
-console.log(height(root));
+// console.log(height(root));
+
+// printPreOrder(root);
+// printInOrder(root);
+printPostOrder(root);
