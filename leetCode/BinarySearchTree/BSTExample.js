@@ -17,20 +17,30 @@ function insert(root, data) {
   return root;
 }
 
-function insertWithoutRecursion(root, data){
-    let newNode = new BSTNode(data);
+function insertWithoutRecursion(root, data) {
+  let newNode = new BSTNode(data);
   if (root == null) {
     root = newNode;
-  } else{
-    var current = root;
-    while(current){
-        if(data<current.data){
-            console.log("Left ", current.data);
-            current = current.left;
-        }else{
-            console.log("Right ", current.data);
-            current = current.right;
-        }
+  } else {
+    var current = root,
+      prev = null;
+    while (current) {
+      prev = current;
+      if (data < current.data) {
+        console.log("Left ", current.data);
+        current = current.left;
+      } else {
+        console.log("Right ", current.data);
+        current = current.right;
+      }
+    }
+
+    if (prev == null) {
+      prev = newNode;
+    } else if (data < prev.data) {
+      prev.left = newNode;
+    } else {
+      prev.right = newNode;
     }
     current = newNode;
   }
@@ -46,6 +56,34 @@ function print(root) {
   }
 }
 
+function search(root, value) {
+  while (root) {
+    if (root.data == value) {
+      return true;
+    }
+
+    if (value < root.data) {
+      root = root.left;
+    } else {
+      root = root.right;
+    }
+  }
+  return false;
+}
+
+function searchRecurssively(root, value){
+  console.log("==",root ? root.data : root)
+  if(root == null){
+    return false;
+  }
+  if(root.data == value){
+    return true;
+  }else if(value < root.data){
+    return searchRecurssively(root.left, value);
+  }else{
+    return searchRecurssively(root.right, value);
+  }
+}
 let root = null;
 root = insert(root, 15);
 root = insert(root, 10);
@@ -68,3 +106,11 @@ root = insert(root, 17);
 root = insertWithoutRecursion(root, 18);
 console.log("===");
 root = insertWithoutRecursion(root, 19);
+console.log("===search=======");
+
+console.log(search(root, 19));
+console.log(search(root, 123));
+console.log("===searchRecurssively=======");
+
+console.log(searchRecurssively(root, 19));
+console.log(searchRecurssively(root, 123));
