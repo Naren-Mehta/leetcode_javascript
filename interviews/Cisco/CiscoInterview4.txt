@@ -1,0 +1,6 @@
+1. Cross Site Scripting (XSS)
+2. CSP: Content Security Policy
+3. setImmidiate in node js
+4. Micro Services, How micro services work, how the connect, how to distribute the load etc
+5. Monolitic vs Micro Services
+5. Loopoles in React js
