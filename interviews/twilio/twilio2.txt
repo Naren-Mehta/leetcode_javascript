@@ -1,0 +1,9 @@
+1. React web application with routing
+
+Shourt users by name, age , rank and about etc
+1. localhost:8080/rank
+2. localhost:8080/about
+3. localhost:8080/name
+4. localhost:8080/age
+
+
