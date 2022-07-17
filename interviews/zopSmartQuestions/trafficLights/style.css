@@ -1,0 +1,40 @@
+.traffic-light {
+  text-align: center;
+  height: 400px;
+  width: 400px;
+  background-color: skyblue;
+  margin: 0 auto;
+}
+
+.signals {
+  /* background-color: black; */
+  height: 100px;
+  width: 100px;
+  border-radius: 80%;
+  margin: 40px auto;
+}
+
+.signals .red {
+  height: 100px;
+  width: 100px;
+  border-radius: 80%;
+  margin: 40px 0;
+}
+
+ .signals .yellow {
+  height: 100px;
+  width: 100px;
+  border-radius: 80%;
+  margin: 20px 0;
+}
+
+.signals .green {
+  height: 100px;
+  width: 100px;
+  border-radius: 80%;
+  margin: 20px 0;
+}
+
+.signals .black {
+    background-color: black;
+}
